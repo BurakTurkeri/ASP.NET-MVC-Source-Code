@@ -1,0 +1,29 @@
+﻿@model SimpleBlogWeb.ViewModels.AuthLogin
+
+
+@{ 
+    ViewBag.Title = "Login Page";
+}
+<h2>This is our login page.</h2>
+
+<p>The value of test in our model is @Model.Test</p>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+
+    <div>
+        @Html.LabelFor(x=>x.UserName)
+        @Html.EditorFor(x => x.UserName)
+    </div>
+
+    <div>
+        @Html.LabelFor(x => x.Password)
+        @Html.EditorFor(x => x.Password)
+    </div>
+
+    <div>
+        <input type="submit" />
+    </div>
+}
+

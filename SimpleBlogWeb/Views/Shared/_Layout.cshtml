@@ -1,0 +1,45 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title -  Simple Blog</title>
+</head>
+<body>
+    
+    <img src="https://www.trakya.edu.tr/admin/tools/theme/www_v2/images/logo/tr/logo.png" />
+    @RenderSection("Top",false)
+    <header>
+        <h1><a href="@Url.RouteUrl("Home")">Simple Blog Web Application</a></h1>
+
+        @if (User.Identity.IsAuthenticated)
+        {
+            <p>Welcome back @User.Identity.Name</p>
+            <a href="@Url.RouteUrl("logout")">Logout</a>
+
+            if (User.IsInRole("admin"))
+            {
+                <a href="@Url.Action("Index","Posts",new {area="admin" })">View posts in admin</a>
+
+            }
+        }
+        else
+        {
+            <a href="@Url.RouteUrl("login")">Login</a>
+        }
+
+    </header>
+    @RenderBody()
+
+    <footer>
+        &copy; @DateTime.Now.Year This page is under construction .
+    </footer>
+
+    @RenderSection("Scripts",false)
+</body>
+</html>

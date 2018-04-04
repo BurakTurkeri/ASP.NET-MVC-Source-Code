@@ -4,12 +4,15 @@ obj
 *.user
 *.sln.docstates
 
-[Db]ebug/
-[Rr]elease/
+
+[Dd]ebug
+[Rr]elease
+
+
 *.obj
 *.pdb
 
-_ReSharper*
+_Resharper*
 
 Thumbs.db
 Desktop.ini
